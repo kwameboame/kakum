@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+   <title>Social Accountability - About</title>
+   <!-- styles -->
+   <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+   <link href="{{STATIC_URL}}frontend/assets/plugins/jquery-ui/jquery-ui.css" rel="stylesheet">
+   <link href="{{STATIC_URL}}frontend/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <script src="https://use.fontawesome.com/1ae586c7a5.js"></script>
+   <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}frontend/assets/plugins/rs-plugin/css/settings.css" media="screen">
+   <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+   
+   <!-- CUSTOM CSS -->
+   <link href="{{STATIC_URL}}frontend/assets/css/style.css" rel="stylesheet">
+   <link href="{{STATIC_URL}}frontend/assets/css/main.css" rel="stylesheet">
+   <link href="{{STATIC_URL}}frontend/assets/css/documents.css" rel="stylesheet">
+   <link href="{{STATIC_URL}}frontend/assets/css/comments.css" rel="stylesheet">
+   <link href="{{STATIC_URL}}frontend/assets/css/login.css" rel="stylesheet">
+   <!-- after glow video -->
+   <script type="text/javascript" src="{{STATIC_URL}}frontend/assets/js/afterglow.min.js"></script>
+
+</head>
+<body class="background-dark template-product">
+  <div class="header clearfix">
+                   <div class="topBar">
+                       <div class="container">
+                           <div class="row">
+                               <div class="col-md-6 hidden-sm hidden-xs">
+                                   <ul class="list-inline">
+                                       <li><a href="#"><i class="fa fa-envelope-o"></i> info@penplusbytes.org</a></li>
+                                   </ul>
+                               </div>
+                               <div class="col-md-6 col-xs-12">
+                                   <ul style='padding:5px' class="list-inline pull-right">
+            {% if user.is_authenticated %}
+            <li><img class='img-circle' height='50' src='{{user.get_avatar}}' /></li>
+            <li style='margin-top:7px'><a style='font-size:16px' href="#">{{user.first_name}} {{user.last_name}}</a></li>
+            <li style='margin-top:7px'><a href="/users/logout/">Logout</a>
+            {% else %}
+            <li><a  href="/user_login/">Login</a></li>
+            <li><a  href="/user_register/">Register</a></li>
+             <li style='margin-top:0px'><a target='_blank' href="http://penplusbytes.org/site/">Visit Penplusbytes</a>
+            </li>
+            {% endif %}
+           
+          </ul>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                   <nav class="navbar navbar-main navbar-default" role="navigation">
+                       <div class="container">
+                           <div class="navbar-header">
+                               <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                       data-target=".navbar-ex1-collapse">
+                                   <span class="sr-only">Toggle navigation</span>
+                                   <span class="icon-bar"></span>
+                                   <span class="icon-bar"></span>
+                                   <span class="icon-bar"></span>
+                               </button>
+                               <a style='width:245px' href="/" class="navbar-brand"><img style="float: left; margin-top: -9px;" src="http://afrstatic.s3.amazonaws.com/logo_kakum.png" height="50"><h4 id="logo-text">Tech Driven Social<br/> Accountability</h4></a>
+                           </div>
+
+                           <div class="collapse navbar-collapse navbar-ex1-collapse">
+                               <ul class="nav navbar-nav navbar-right">
+                                   <li><a  href="/issues/" >Issues</a></li>
+                                   <li class="dropdown">
+                                       <a class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                          aria-haspopup="true" aria-expanded="false">Knowledge Center</a>
+                                       <ul class="dropdown-menu dropdown-menu-right">
+                                           <li><a  href="/knowledge_center/articles/" class="articles-font"
+                                                     >Articles</a></li>
+                                           <li><a  href="/knowledge_center/documents/" class="articles-font"
+                                                     >Documents</a></li>
+                                           <li><a  href="/knowledge_center/audios/" class="articles-font"
+                                                     >Audios</a></li>
+                                           <li><a  href="/knowledge_center/videos/" class="articles-font"
+                                                     >Videos</a></li>
+                                       </ul>
+                                   </li>
+                                   <li><a  href="/about/" >About Us</a></li>
+                               </ul>
+                           </div>
+                       </div>
+                   </nav>
+</div>
+
+<section class="lightSection clearfix pageHeader">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="page-title">
+                    <h2>ABOUT US</h2>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <ol class="breadcrumb pull-right">
+                    <li>
+                        <a href=''>HOME</a>
+                    </li>
+                    <li class="active">ABOUT</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mainContent clearfix aboutUsInfo">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="page-header">
+                    <h3>About this platform</h3>
+                </div>
+            </div>
+           
+
+           
+            <div class="col-sm-12">
+            <img class='img-thumbnail' style='width:50%; float:right; margin: 0 0 10px 18px;' src='http://www.africanelections.org/ghana/userfiles/news/penplusbytes_new_logo.jpg' />
+                <p  style='text-align: justify'>There is growing recognition both among governments, donors and civil society that citizens and
+
+communities have an important role to play with regards to enhancing accountability of public
+
+officials, reducing corruption and leakage of funds and improving public service delivery.</p>
+                <p  style='text-align: justify'> As a result, Social Accountability has become an attractive approach to both the public sector and civil
+
+society for improving governance processes, service delivery outcomes, and improving resource
+
+allocation decisions. Social Accountability is a process in which the ordinary citizen participates
+
+directly in demanding accountability and responsiveness of decision makers (government,
+
+parliament) and other groups that deliver public goods. Over the past few years, the Ministry of
+
+Local Government has been implementing a number of interventions such as the Community-Based
+
+Rural Development Project (CBRDP), Urban Poverty Reduction Project (UPRP), Northern Poverty
+
+Reduction Project (NORPREP), Ghana School Feeding Programme (GSFP), Ghana Social
+
+Opportunities Project (GSOP) and the Local Government Capacity Support Project (LGCSP) as a way
+
+of promoting social accountability.</p>
+
+<p style='text-align: justify'>Although, there are a number of mechanisms for ensuring citizens are empowered to participate in
+efficient public service delivery, including participatory expenditure, monitoring and evaluation,
+community score cards, social audit and public expenditure tracking, not many avenues exist,
+especially at the grassroots level for citizens to hold officials to account. There is also a distinct lack
+of state mechanisms which give impetus to social accountability interventions and help achieve
+responsiveness.</p>
+
+<p style='text-align: justify'>In view of this problem, Penplusbytes is rolling out “Tech Driven Social Accountability for
+Results” project intended to use new digital tools which will contribute to citizens’ ability to hold
+government to account within the framework of political and social accountability.
+Our proposed solution will equip citizens with usable information, methods, online and mobile
+based platform which will enable them to monitor health and education sector policies, indicators
+and programs while actively engaging duty-bearers to demand for better service delivery.
+Practically, our project will combine innovative digital technology mashed-up with participatory
+public expenditure on health and education tracking survey, relevant health and education sector
+policy scorecards and effective advocacy. Without provision of high quality health and education
+services, citizens’ aspiration to be free and enjoy the dividends of an open society will be
+impossible.</p>
+
+<h3>Intended Outcomes</h3>
+
+<p style='text-align: justify'>The project will seek to create a culture where citizens are equipped to actively engage in policy implementation and demand accountability by increasing citizen-driven accountability
+mechanisms to monitor public service delivery and also empowering citizens ability to demand
+sanction of elected officials for poor service delivery. It will also improve the engagement
+frameworks between citizens and governments for purposes of effective monitoring of
+programmes, development and budget appropriation and decision making.</p>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="footer clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 col-xs-12">
+        <div class="footerLink">
+          <h5>Contact Us</h5>
+          <ul class="list-unstyled">
+            <li><a href="http://penplusbytes.org/site/">Website</a></li>
+            <li>Tel: + 233 500294411</li>
+          </ul>
+        </div>
+      </div>
+       <div class="col-sm-4 col-xs-12">
+        <div class="footerLink">
+          <h5>Relevant Links</h5>
+          <ul class="list-unstyled">
+          {% for item in relevant %}
+            <li><a href="{{item.link}}">{{item.title}}</a></li>
+          {% endfor %}
+         
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-12">
+       <div class="footerLink">
+          <h5 style='text-transform: None'>Powered Penplusbytes with Support from OSIWA</h5>
+          <ul class="list-unstyled">
+            <li><img style='float:left; margin-right:15px' height='75' src="http://www.africanelections.org/ghana/userfiles/news/penplusbytes_new_logo.jpg" /></li>
+            <li><img height='75' src="https://s3.amazonaws.com/wacam-static/partners/osiaI.jpg" /></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="copyRight clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7 col-xs-12">
+                <p>&copy; 2016 Copyright. <a target="_blank" href="http://www.iamabdus.com/">Social Accountability</a>.</p>
+            </div>
+            <div class="col-sm-5 col-xs-12">
+                <ul class="list-inline">
+                    <li><a href="https://www.facebook.com/groups/7775446390/"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com/penplusbytes"><i class=" fa fa-twitter"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> 
+<script src="{{STATIC_URL}}frontend/assets/plugins/jquery-ui/jquery-ui.js"></script>
+<script src="{{STATIC_URL}}frontend/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="{{STATIC_URL}}frontend/assets/plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+<script src="{{STATIC_URL}}frontend/assets/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+<script src="{{STATIC_URL}}frontend/assets/plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
+<script src="{{STATIC_URL}}frontend/assets/plugins/countdown/jquery.syotimer.js"></script>
+<script src="{{STATIC_URL}}frontend/assets/js/custom.js"></script>
+</body>
+</html>

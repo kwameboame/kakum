@@ -1,0 +1,28 @@
+    
+              <div class="col-sm-3 col-xs-12">
+                <div class="thumbnail">
+
+
+                  <h3>Documents </h3>
+                  <div class="imageWrapper">
+                    
+                    {% thumbnail document.get_first_image "340x220" crop="center" as im %}
+                      <img class="img-responsive" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                    {% endthumbnail %}  
+
+                    <div class="masking">
+                    <a href='/issues/{{item.id}}/'>
+                    <span class="btn viewBtn">View Issue</span>
+                    </a>
+                    </div>
+                  </div>
+                  <div class="caption">
+                    <a href='/issues/{{item.id}}/'>
+                      <h4>{{item.title}}</h4>
+                    </a>
+                    <hr/>
+                    
+                    <h6 class="giveMeEllipsis">{{item.description|truncatewords:'50'}}</h6>
+                  </div>
+                </div>
+              </div>

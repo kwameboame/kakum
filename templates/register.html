@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+   <title>Social Accountability - Register</title>
+   <!-- styles -->
+   <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+   <link href="{{STATIC_URL}}frontend/assets/plugins/jquery-ui/jquery-ui.css" rel="stylesheet">
+   <link href="{{STATIC_URL}}frontend/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <script src="https://use.fontawesome.com/1ae586c7a5.js"></script>
+   <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}frontend/assets/plugins/rs-plugin/css/settings.css" media="screen">
+   <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+   
+   <!-- CUSTOM CSS -->
+   <link href="{{STATIC_URL}}frontend/assets/css/style.css" rel="stylesheet">
+   <link href="{{STATIC_URL}}frontend/assets/css/main.css" rel="stylesheet">
+   <link href="{{STATIC_URL}}frontend/assets/css/documents.css" rel="stylesheet">
+   <link href="{{STATIC_URL}}frontend/assets/css/comments.css" rel="stylesheet">
+   <link href="{{STATIC_URL}}frontend/assets/css/login.css" rel="stylesheet">
+   <!-- after glow video -->
+   <script type="text/javascript" src="{{STATIC_URL}}frontend/assets/js/afterglow.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <meta name="google-signin-scope" content="profile email">
+ <meta name="google-signin-client_id" content="108415417598-oifnucs3le9jsf8b9p4vgq8nh4re7het.apps.googleusercontent.com">
+ <script src="https://apis.google.com/js/platform.js" async defer></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+</head>
+<body class="background-dark template-product">
+  <div class="header clearfix">
+                   <div class="topBar">
+                       <div class="container">
+                           <div class="row">
+                               <div class="col-md-6 hidden-sm hidden-xs">
+                                   <ul class="list-inline">
+                                       <li><a href="#"><i class="fa fa-envelope-o"></i> info@penplusbytes.org</a></li>
+                                   </ul>
+                               </div>
+                               <div class="col-md-6 col-xs-12">
+                                <ul style='padding:5px' class="list-inline pull-right">
+            {% if user.is_authenticated %}
+            <li style='padding:5px'><img class='img-circle' height='40' src='{{user.get_avatar}}' /></li>
+            <li style='margin-top:5px'><a style='font-size:16px' href="#">{{user.first_name}} {{user.last_name}}</a></li>
+            <li style='margin-top:5px'><a href="/user_logout/">Logout</a></li>
+            {% else %}
+            <li><a  href="/user_login/">Login</a></li>
+            <li><a  href="/user_register/">Register</a></li>
+            <li style='margin-top:0px'><a target='_blank' href="http://penplusbytes.org/site/">Visit Penplusbytes</a>
+            {% endif %}
+          </ul>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                   <nav class="navbar navbar-main navbar-default" role="navigation">
+                       <div class="container">
+                           <div class="navbar-header">
+                               <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                       data-target=".navbar-ex1-collapse">
+                                   <span class="sr-only">Toggle navigation</span>
+                                   <span class="icon-bar"></span>
+                                   <span class="icon-bar"></span>
+                                   <span class="icon-bar"></span>
+                               </button>
+                               <a style='width:220px' href="/" class="navbar-brand"><img style="float: left; margin-top: -9px;" src="http://afrstatic.s3.amazonaws.com/logo_kakum.png" height="50"><h4 id="logo-text">Social<br/> Accountability</h4></a>
+                           </div>
+
+                           <div class="collapse navbar-collapse navbar-ex1-collapse">
+                               <ul class="nav navbar-nav navbar-right">
+                                   <li><a  href='/issues/'>Issues</a></li>
+<li class="dropdown">
+           <a class="dropdown-toggle" data-toggle="dropdown" role="button"
+           aria-haspopup="true" aria-expanded="false">Gallery</a>
+           <ul class="dropdown-menu dropdown-menu-right">
+             <li><a  href="/gallery/pictures/" class="articles-font"
+               >Pictures</a>
+             </li>
+             <li><a  href="/gallery/videos/" class="articles-font"
+               >Videos</a>
+             </li>
+
+           </ul>
+         </li>
+                                   <li class="dropdown">
+                                       <a class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                          aria-haspopup="true" aria-expanded="false">Knowledge Center</a>
+                                       <ul class="dropdown-menu dropdown-menu-right">
+                                           <li><a  href="/knowledge_center/articles/" class="articles-font"
+                                                     >Articles</a></li>
+                                           <li><a  href="/knowledge_center/documents/" class="articles-font"
+                                                     >Documents</a></li>
+                                           <li><a  href="/knowledge_center/audios/" class="articles-font"
+                                                     >Audios</a></li>
+                                           <li><a  href="/knowledge_center/videos/" class="articles-font"
+                                                     >Videos</a></li>
+                                       </ul>
+                                   </li>
+                                   <li><a  href="/about/" >About Us</a></li>
+                               </ul>
+                           </div>
+                       </div>
+                   </nav>
+</div>
+
+<section class="lightSection clearfix pageHeader">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="page-title">
+                    <h2>REGISTER</h2>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <ol class="breadcrumb pull-right">
+                    <li>
+                        <a href=''>HOME</a>
+                    </li>
+                    <li class="active">REGISTER</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mainContent clearfix signUp">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h3>sign up</h3></div>
+                    <div class="panel-body">
+                    {% if error %}
+                        <div class="text-danger"><h5>Email Already Exist</h5></div>
+                        {% endif %}
+
+                        <form action="/user_register/" method="POST" role="form" data-parsley-validate> {% csrf_token %}
+    <div class="form-group">
+        
+        <label for="">First Name</label>
+        <input data-parsley-minlength="2"  type="text" class="form-control" name='first_name' placeholder="Enter first name" required/>
+    </div>
+    <div class="form-group">
+         
+        <label for="">Last Name</label>
+        <input data-parsley-minlength="2" type="text" class="form-control" name='last_name' placeholder="Enter last name" required/>
+    </div>
+
+    <input  type="hidden" name='next' value='{{next}}'/>
+    <div class="form-group">
+         
+        <label for="">Email</label>
+        <input data-parsley-type="email" type="email" class="form-control" name='email' placeholder="Enter email" id="email" required/>
+    </div>
+    <div class="form-group">
+         
+        <label for="">Password</label>
+        <input type="password" class="form-control" name='password' id="password" placeholder="Enter password" required/>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Submit
+    </button>
+    <button type="button" class="btn btn-link btn-block"><a
+        href="/user_login/"><span>Already have an account?</span>
+        Log in</a></button>
+</form>
+
+     <p style='text-align:center'> OR </p>
+
+              <div class="panel-body">
+
+                <a href='{% url 'social:begin' 'facebook' %}?next={{ request.path }}'> <button class="btn btn-block btn-large align_social " style="  width:100%; color:white; background:#3B5998"><i class="fa fa-2x fa-facebook-square"></i> &nbsp; &nbsp; Connect with <strong>Facebook</strong>
+                </button></a>
+
+                <a href='{% url 'social:begin' 'twitter' %}?next={{ request.path }}'><button style=" margin-top:10px; width:100%; color:white; background:#4099FF" class="btn btn-block btn-large align_social"><i style="color:white" class="fa-2x fa fa-twitter-square"></i> &nbsp; &nbsp; Connect with <strong>Twitter</strong>
+                </button></a>
+
+
+                <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                <script>
+
+                 function renderButton() {
+                  gapi.signin2.render('g-signin2', {
+                    'scope': 'profile email',
+                    'width': 440,
+                    'height': 50,
+                    'longtitle': true,
+                    'theme': 'dark',
+                    'onsuccess': onSignIn,
+                    'onfailure': onFailure
+                  });
+                }
+              </script>
+
+              <script>
+
+  (function ($) {
+    'use strict';
+
+    /**
+     * jQuery Redirect
+     * @param {string} url - Url of the redirection
+     * @param {Object} values - (optional) An object with the data to send. If not present will look for values as QueryString in the target url.
+     * @param {string} method - (optional) The HTTP verb can be GET or POST (defaults to POST)
+     * @param {string} target - (optional) The target of the form. "_blank" will open the url in a new window.
+     */
+     $.redirect = function (url, values, method, target) {
+      method = (method && method.toUpperCase() === 'GET') ? 'GET' : 'POST';
+
+      if (!values) {
+        var obj = $.parseUrl(url);
+        url = obj.url;
+        values = obj.params;
+      }
+
+      var form = $('<form>')
+      .attr("method", method)
+      .attr("action", url);
+
+      if (target) {
+        form.attr("target", target);
+      }
+
+      iterateValues(values, [], form);
+      $('body').append(form);
+      form[0].submit();
+    };
+
+    //Utility Functions
+    /**
+     * Url and QueryString Parser.
+     * @param {string} url - a Url to parse.
+     * @returns {object} an object with the parsed url with the following structure {url: URL, params:{ KEY: VALUE }}
+     */
+     $.parseUrl = function (url) {
+      if (url.indexOf('?') === -1) {
+        return {
+          url: url,
+          params: {}
+        };
+      }
+      var parts = url.split('?'),
+      query_string = parts[1],
+      elems = query_string.split('&');
+      url = parts[0];
+
+      var i, pair, obj = {};
+      for (i = 0; i < elems.length; i+= 1) {
+        pair = elems[i].split('=');
+        obj[pair[0]] = pair[1];
+      }
+
+      return {
+        url: url,
+        params: obj
+      };
+    };
+
+    //Private Functions
+    var getInput = function (name, value, parent, array) {
+      var parentString;
+      if (parent.length > 0) {
+        parentString = parent[0];
+        var i;
+        for (i = 1; i < parent.length; i += 1) {
+          parentString += "[" + parent[i] + "]";
+        }
+
+        if (array) {
+          name = parentString + "[]";
+        } else {
+          name = parentString + "[" + name + "]";
+        }
+      }
+
+      return $("<input>").attr("type", "hidden")
+      .attr("name", name)
+      .attr("value", value);
+    };
+
+    var iterateValues = function (values, parent, form, array) {
+      var i, iterateParent = [];
+      for (i in values) {
+        if (typeof values[i] === "object") {
+          iterateParent = parent.slice();
+          if (array) {
+            iterateParent.push('');
+          } else {
+            iterateParent.push(i);
+          }
+          iterateValues(values[i], iterateParent, form, Array.isArray(values[i]));
+        } else {
+          form.append(getInput(i, values[i], parent, array));
+        }
+      }
+    };
+  }(window.jQuery || window.Zepto || window.jqlite));
+
+</script>
+              <script>
+                function onSignIn(googleUser) {
+                  // Useful data for your client-side scripts:
+                  var profile = googleUser.getBasicProfile();
+                  console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+                  console.log('Full Name: ' + profile.getName());
+                  console.log('Given Name: ' + profile.getGivenName());
+                  console.log('Family Name: ' + profile.getFamilyName());
+                  console.log("Image URL: " + profile.getImageUrl());
+                  console.log("Email: " + profile.getEmail());
+
+                  var password = profile.getId();
+                  var first_name = profile.getGivenName();
+                  var last_name = profile.getFamilyName();
+                  var image_url = profile.getImageUrl();
+                  var email = profile.getEmail();
+
+                  $.redirect('/google_register/', {                
+                      "csrfmiddlewaretoken": $("input[name=csrfmiddlewaretoken]").val(),
+                      "password": password,
+                      "first_name": first_name,
+                      "last_name": last_name,
+                      "image_url": image_url,
+                      "email": email
+                    })
+
+                 }
+               
+
+              </script>
+
+            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="footer clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 col-xs-12">
+        <div class="footerLink">
+          <h5>Contact Us</h5>
+          <ul class="list-unstyled">
+            <li><a href="http://penplusbytes.org/site/">Website</a></li>
+            <li>Tel: + 233 500294411</li>
+          </ul>
+        </div>
+      </div>
+       <div class="col-sm-4 col-xs-12">
+        <div class="footerLink">
+          <h5>Relevant Links</h5>
+          <ul class="list-unstyled">
+          {% for item in relevant %}
+            <li><a href="{{item.link}}">{{item.title}}</a></li>
+          {% endfor %}
+         
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-12">
+       <div class="footerLink">
+          <h5 style='text-transform: None'>Powered Penplusbytes with Support from OSIWA</h5>
+          <ul class="list-unstyled">
+            <li><img style='float:left; margin-right:15px' height='75' src="http://www.africanelections.org/ghana/userfiles/news/penplusbytes_new_logo.jpg" /></li>
+            <li><img height='75' src="https://s3.amazonaws.com/wacam-static/partners/osiaI.jpg" /></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="copyRight clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7 col-xs-12">
+                <p>&copy; 2016 Copyright. <a target="_blank" href="http://www.iamabdus.com/">Social Accountability</a>.</p>
+            </div>
+            <div class="col-sm-5 col-xs-12">
+                <ul class="list-inline">
+                    <li><a href="https://www.facebook.com/groups/7775446390/"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com/penplusbytes"><i class=" fa fa-twitter"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> 
+<script src="{{STATIC_URL}}frontend/assets/plugins/jquery-ui/jquery-ui.js"></script>
+<script src="{{STATIC_URL}}frontend/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="{{STATIC_URL}}frontend/assets/plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+<script src="{{STATIC_URL}}frontend/assets/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+<script src="{{STATIC_URL}}frontend/assets/plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
+<script src="{{STATIC_URL}}frontend/assets/plugins/countdown/jquery.syotimer.js"></script>
+<script src="{{STATIC_URL}}frontend/assets/js/custom.js"></script>
+<script src="{{STATIC_URL}}parsley.min.js"></script>
+</body>
+</html>

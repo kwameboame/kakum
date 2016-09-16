@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Kakum - Dashboard </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="description" content="Kakum">
+    <meta name="author" content="Kakum">
+
+    <link type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600' rel='stylesheet'>
+
+    <link type="text/css" href="{{STATIC_URL}}assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">        <!-- Font Awesome -->
+    <link type="text/css" href="{{STATIC_URL}}assets/fonts/themify-icons/themify-icons.css" rel="stylesheet">              <!-- Themify Icons -->
+    <link type="text/css" href="{{STATIC_URL}}assets/fonts/weather-icons/css/weather-icons.min.css" rel="stylesheet">      <!-- Weather Icons -->
+
+    <link rel="stylesheet" href="{{STATIC_URL}}assets/css/styles-alternative.css" id="theme">             <!-- Default CSS: Altenate Style -->
+    <link rel="prefetch alternate stylesheet" href="{{STATIC_URL}}assets/css/styles.css">                 <!-- Prefetched Secondary Style -->
+
+    <link type="text/css" href="{{STATIC_URL}}assets/plugins/codeprettifier/prettify.css" rel="stylesheet">                <!-- Code Prettifier -->
+    <link type="text/css" href="{{STATIC_URL}}assets/plugins/iCheck/skins/minimal/blue.css" rel="stylesheet">   
+    
+<link type="text/css" href="{{STATIC_URL}}assets/plugins/fullcalendar/fullcalendar.css" rel="stylesheet"> 						<!-- FullCalendar -->
+<link type="text/css" href="{{STATIC_URL}}assets/plugins/jvectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"> 			<!-- jVectorMap -->
+<link type="text/css" href="{{STATIC_URL}}assets/plugins/switchery/switchery.css" rel="stylesheet">   							<!-- Switchery -->
+<link type="text/css" href="{{STATIC_URL}}assets/plugins/charts-chartistjs/chartist.min.css" rel="stylesheet"> 	
+				<!-- Chartist -->
+<style>
+.widget-tasks .widget-body .easypiechart .percent-non:after {
+    content: 'Comments';
+    display: block;
+    line-height: 1.45;
+    position: relative;
+    font-weight: normal;
+    top: -28px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+}
+#topnav.navbar-bluegray, #topnav.navbar-bluegray #toolbar-search.active {
+    background-color: #6c0c17;
+}
+.bluegray.static-sidebar-wrapper, .sidebar-bluegray.fixed-sidebar {
+    background-color: #780e1a;
+} 
+.sidebar-bluegray nav.widget-body > ul.acc-menu > li.active > a {
+    background-color: #6c0c17;
+    color: #ffffff;
+    border-color:  #b0bec5;
+}
+.sidebar-bluegray nav.widget-body > ul.acc-menu li a {
+    color: #fff;
+    background-color: #6c0c17;
+    border-color:  #b0bec5;
+}
+.sidebar-bluegray.static-sidebar-wrapper, .sidebar-bluegray.fixed-sidebar {
+    background-color: #6c0c17;
+}
+.sidebar-bluegray .sidebar .widget .widget-body .userinfo {
+    background-color: #6c0c17;
+    border-bottom: 1px solid #b0bec5;
+}
+#topnav.navbar-bluegray #toolbar-search .input-group-btn button, #topnav.navbar-bluegray #toolbar-search .form-control {
+    background: #C99EA3;
+    color: #eceff1;
+}
+.widget-tasks {
+    background: #852630;
+}
+.sidebar-bluegray nav.widget-body > ul.acc-menu ul, .sidebar-bluegray nav.widget-body > ul.acc-menu ul li a {
+    background-color: #852630;
+    color: #fff;
+}
+.sidebar-bluegray nav.widget-body > ul.acc-menu > li:hover > a {
+    background-color: #540912;
+    color: #eceff1;
+    border-color: #600B14;
+}
+.sidebar-bluegray nav.widget-body > ul.acc-menu ul li a:hover {
+    background-color: #600b14;
+    color: #eceff1;
+}
+.sidebar-bluegray nav.widget-body > ul.acc-menu > li > a > i {
+    color: #eee;
+}
+.sidebar-bluegray nav.widget-body > ul.acc-menu > li > a > i {
+    color: #eee;
+}
+.widget-tasks .widget-tabs li {
+    border-right: 1px solid #eee;
+    width: 33.33%;
+    text-align: center;
+    background: #6c0c17;
+}
+.widget-tasks .widget-tabs li.active a, .widget-tasks .widget-tabs li.active a:hover {
+    background: #43070e;
+    color: #ffffff;
+}
+
+.card {
+  position: relative;
+  height:88px;
+  margin-bottom: 24px;
+  background-color: #ffffff;
+  color: #313534;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+}
+.card:before,
+.card:after {
+  content: " ";
+  display: table;
+}
+.card:after {
+  clear: both;
+}
+.card .btn-icon-toggle:hover,
+.card .btn-flat:hover {
+  background-color: rgba(12, 12, 12, 0.07);
+}
+.card > .nano:last-child {
+  border-radius: 0 0 2px 2px;
+}
+.card.no-shadow {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.card-head {
+  position: relative;
+  line-height: 52px;
+  min-height: 56px;
+  vertical-align: middle;
+  border-radius: 2px 2px 0 0;
+}
+.card-head:before,
+.card-head:after {
+  content: " ";
+  display: table;
+}
+.card-head:after {
+  clear: both;
+}
+.card-head header {
+  display: inline-block;
+  padding: 11px 24px;
+  vertical-align: middle;
+  line-height: 17px;
+  font-size: 20px;
+}
+.card-head header > h1,
+.card-head header > h2,
+.card-head header > h3,
+.card-head header > h4,
+.card-head header > h5,
+.card-head header > h6 {
+  vertical-align: middle;
+  margin: 0;
+  line-height: 1;
+}
+.card-head header small {
+  color: inherit;
+  opacity: 0.6;
+  font-size: 75%;
+}
+.card-head > div {
+  display: inline-block;
+}
+.card-head .tools {
+  padding-right: 16px;
+  float: right;
+}
+.card-head .tools form {
+  margin-top: 7px;
+  margin-bottom: 7px;
+  margin-left: 24px;
+  line-height: normal;
+  vertical-align: middle;
+}
+.card-head .tools .btn-floating-action {
+  margin-left: 8px;
+}
+.card-head .tools > .btn-group {
+  margin-right: 4px;
+}
+.card-head .tools > .btn-group-xs {
+  margin-right: 10px;
+}
+.card-head .tools > .btn-group-sm {
+  margin-right: 4px;
+}
+.card-head .tools > .btn-group-lg {
+  margin-right: 0;
+}
+.card-head .tools.pull-left > .btn-group {
+  margin-left: 4px;
+}
+.card-head .tools.pull-left > .btn-group-xs {
+  margin-left: 10px;
+}
+.card-head .tools.pull-left > .btn-group-sm {
+  margin-left: 4px;
+}
+.card-head .tools.pull-left > .btn-group-lg {
+  margin-left: 0;
+}
+.card-head.card-head-xs {
+  line-height: 32px;
+  min-height: 36px;
+}
+.card-head.card-head-xs header {
+  font-size: 15px;
+  padding: 8px 24px;
+}
+.card-head.card-head-sm {
+  line-height: 44px;
+  min-height: 48px;
+}
+.card-head.card-head-sm header {
+  font-size: 15px;
+}
+.card-head.card-head-lg {
+  line-height: 76px;
+  min-height: 80px;
+}
+.card-head.card-head-lg header {
+  font-size: 24px;
+}
+.card-body {
+  padding: 24px;
+  position: relative;
+}
+.card-body:before,
+.card-body:after {
+  content: " ";
+  display: table;
+}
+.card-body:after {
+  clear: both;
+}
+.card-body:last-child {
+  border-radius: 0 0 2px 2px;
+}
+.card-body.table-responsive {
+  margin: 0;
+}
+.card-actionbar {
+  padding-bottom: 8px;
+  position: relative;
+}
+.card-actionbar:before,
+.card-actionbar:after {
+  content: " ";
+  display: table;
+}
+.card-actionbar:after {
+  clear: both;
+}
+.card-actionbar:last-child {
+  border-radius: 0 0 2px 2px;
+}
+.card-actionbar-row {
+  padding: 6px 16px;
+  text-align: right;
+}
+.card-tiles > .row,
+.card-type-blog-masonry > .row {
+  margin: 0;
+}
+.card-tiles > .row > [class^="col-"],
+.card-type-blog-masonry > .row > [class^="col-"] {
+  padding: 0;
+}
+.card-underline .card-head {
+  border-bottom: 1px solid rgba(150, 156, 156, 0.4);
+}
+.card-underline .card-foot {
+  border-top: 1px solid rgba(150, 156, 156, 0.4);
+}
+.card-bordered,
+.card-outlined {
+  border: 2px solid #969c9c;
+}
+.opacity-50 {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+.force-padding {
+  padding: 24px;
+}
+.large-padding {
+  padding: 48px;
+}
+.small-padding {
+  padding: 12px;
+}
+.no-y-padding {
+  padding: 0 24px;
+}
+.no-side-padding {
+  padding: 24px 0;
+}
+.alert.alert-callout {
+  position: relative;
+  padding-left: 20px;
+  background: #ffffff;
+  color: #313534;
+  border-radius: 3px;
+  border-color: rgba(83, 88, 88, 0.15);
+}
+.alert.alert-callout:before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 4px;
+  left: -1px;
+  top: -1px;
+  bottom: -1px;
+  background: red;
+}
+.alert-callout.alert-success:before {
+  background: #4caf50;
+}
+.alert-callout.alert-info:before {
+  background: #2196f3;
+}
+.alert-callout.alert-warning:before {
+  background: #ff9800;
+}
+.alert-callout.alert-danger:before {
+  background: #f44336;
+}
+</style>
+    </head>
+
+    <body class="animated-content">
+    
+<div class="extrabar-underlay"></div>
+
+<header id="topnav" class="navbar navbar-bluegray navbar-fixed-top">
+
+	<div class="logo-area">
+		<span id="trigger-sidebar" class="toolbar-trigger toolbar-icon-bg">
+			<a data-toggle="tooltips" data-placement="right" title="Toggle Sidebar">
+				<span class="icon-bg">
+					<i class="ti ti-shift-left"></i>
+				</span>
+			</a>
+		</span>
+		
+		{% if user.is_admin == '2' %}
+		<a class="navbar-brand" href="#"> <img style='float:left; margin-top:-14px' height='50' src='{{STATIC_URL}}logo_kakum.png' /> Kakum ({{project_name}})</a>
+		{% else %}
+		<a class="navbar-brand" href="#"> <img style='float:left; margin-top:-14px' height='50' src='{{STATIC_URL}}logo_kakum.png' /> Kakum </a>
+		{% endif %}
+
+
+		<div class="toolbar-icon-bg hidden-xs" id="toolbar-search">
+			<div class="input-icon">
+				<i class="ti ti-search search"></i>
+				<input type="text" placeholder="Type to search..." class="form-control" tabindex="1">
+				<i class="ti ti-close remove"></i>
+			</div>
+        </div>
+
+	</div><!-- logo-area -->
+
+
+
+
+
+		<ul class="nav navbar-nav toolbar pull-right">
+
+
+		<li class="dropdown toolbar-icon-bg">
+			<a href="#" id="navbar-links-toggle" data-toggle="collapse" data-target="header>.navbar-collapse">
+				<span class="icon-bg">
+					<i class="ti ti-more"></i>
+				</span>
+			</a>
+		</li>
+
+		<li class="toolbar-icon-bg" id="trigger-toolbar-search">
+			<a href="#"><span class="icon-bg"><i class="ti ti-search"></i></span></a>
+		</li>
+
+      
+        <li class="dropdown toolbar-icon-bg hidden-xs">
+			<a href="#" class="hasnotifications dropdown-toggle" data-toggle='dropdown'><span class="icon-bg"><i class="ti ti-email"></i></span><span
+			class="badge badge-deeporange">4</span></a>
+			<div class="dropdown-menu notifications arrow">
+				<div class="topnav-dropdown-header">
+					<span>Latest Comment</span>
+				</div>
+				<div class="scroll-pane">
+					<ul class="media-list scroll-content">
+
+					{% for item in latest %}
+						<li class="media notification-message">
+							<a href="#">
+								<div class="media-left">
+									<img class="img-circle avatar" src="{{item.author.get_avatar}}" alt="" />
+								</div>
+								<div class="media-body">
+									<h4 class="notification-heading"><strong>{{item.author.first_name}} {{item.author.last_name}}</strong> <span class="text-gray">{{item.comment}}</span></h4>
+									<span class="notification-time">{{item.get_elapsed_time}}</span>
+								</div>
+							</a>
+						</li>
+						{% endfor %}
+						
+				
+					</ul>
+				</div>
+				<div class="topnav-dropdown-footer">
+					<a href="/projects/all_issues/">See all comments</a>
+				</div>
+			</div>
+		</li>
+		
+		<li class="dropdown toolbar-icon-bg">
+			<a href="#" class="hasnotifications dropdown-toggle" data-toggle='dropdown'><span class="icon-bg"><i class="ti ti-bell"></i></span><span class="badge badge-deeporange">2</span></a>
+			<div class="dropdown-menu notifications arrow">
+				<div class="topnav-dropdown-header">
+					<span>Notifications</span>
+				</div>
+				<div class="scroll-pane">
+					<ul class="media-list scroll-content">
+						<li class="media notification-success">
+							<a href="#">
+								<div class="media-left">
+									<span class="notification-icon"><i class="ti ti-pencil"></i></span>
+								</div>
+								<div class="media-body">
+									<h4 class="notification-heading">Profile page has been updated</h4>
+									<span class="notification-time">12 mins ago</span>
+								</div>
+							</a>
+						</li>
+						<li class="media notification-info">
+							<a href="#">
+								<div class="media-left">
+									<span class="notification-icon"><i class="ti ti-check"></i></span>
+								</div>
+								<div class="media-body">
+									<h4 class="notification-heading">Updates pushed successfully</h4>
+									<span class="notification-time">35 mins ago</span>
+								</div>
+							</a>
+						</li>
+						
+					</ul>
+				</div>
+				<div class="topnav-dropdown-footer">
+					<a href="#">See all notifications</a>
+				</div>
+			</div>
+		</li>
+
+		<li class="dropdown toolbar-icon-bg">
+			<a href="#" class="dropdown-toggle" data-toggle='dropdown'><span class="icon-bg"><i class="ti ti-user"></i></span></i></a>
+			<ul class="dropdown-menu userinfo arrow">
+				<li><a href="/users/user_detail/{{user.id}}"><i class="ti ti-user"></i><span>Profile</span><span class="badge badge-info pull-right">73%</span></a></li>
+				<li><a href="#"><i class="ti ti-settings"></i><span>Settings</span></a></li>
+				<li><a href="#"><i class="ti ti-help-alt"></i><span>Change Password</span></a></li>
+				<li class="divider"></li>
+				
+				
+				<li><a href="/users/logout/"><i class="ti ti-shift-right"></i><span>Sign Out</span></a></li>
+			</ul>
+		</li>
+
+	</ul>
+
+</header>
+
+        <div id="wrapper">
+            <div id="layout-static">
+                <div class="static-sidebar-wrapper sidebar-bluegray">
+                    <div class="static-sidebar">
+                        <div class="sidebar">
+	<div class="widget">
+        <div class="widget-body">
+            <div class="userinfo">
+                <div class="avatar">
+                    <img src="{{STATIC_URL}}assets/demo/avatar/avatar_13.png" class="img-responsive img-circle"> 
+                </div>
+                <div class="info">
+                    <span class="username">{{user.first_name}} {{user.last_name}}</span>
+                    <span class="useremail">{{user.email}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+	<div class="widget stay-on-collapse" id="widget-sidebar">
+        <nav class="widget-body">
+	<ul class="acc-menu">
+		
+		<li class='active'><a href="/"><i class="ti ti-home"></i><span>Dashboard</span></a></li>
+		
+		{% if user.is_admin == '1' %}
+		<li><a href="javascript:;"><i class="ti ti-shield"></i><span>Projects</span></a>
+			<ul class="acc-menu">
+				<li><a href="/projects/add_project/">Add Project</a></li>
+				<li><a href="/projects/all_projects/">All Projects</a></li>
+				<li><a href="/projects/ongoing/">Ongoing Projects</a></li>
+				<li><a href="/projects/past/">Past Project</a></li>	
+			</ul>
+		</li>
+		{% endif %}
+
+
+		<li><a href="javascript:;"><i class="ti ti-view-list-alt"></i><span>Issues</span></a>
+			<ul class="acc-menu">
+				<li><a href="/projects/add_issue/">Add Issue</a></li>
+				<li><a href="/projects/all_issues/">All Issues</a></li>					
+			</ul>
+		</li>
+
+		<li><a href="javascript:;"><i class="ti ti-light-bulb"></i><span>Knowledge Center</span></a>
+  <ul class="acc-menu">
+      
+   <li><a href="/projects/add_article/">Add Article</a></li>
+   <li><a href="/projects/add_document/">Add Document</a></li>	
+   <li><a href="/projects/all_articles/">All Articles</a></li>
+<li><a href="/projects/all_documents/">All Documents</a></li>
+
+ </ul>
+</li>
+
+
+<li><a href="javascript:;"><i class="ti ti-camera"></i><span>Gallery</span></a>
+  <ul class="acc-menu">
+      
+   <li><a href="/projects/add_video/">Add Video</a></li>
+   <li><a href="/projects/add_album/">Add Album</a></li>  
+   <li><a href="/projects/all_videos/">All Videos</a></li>
+   <li><a href="/projects/all_albums/">All Albums</a></li>
+
+ </ul>
+</li>
+
+		<li><a href="javascript:;"><i class="ti ti-comment"></i><span>Issue Comments</span></a>
+  <ul class="acc-menu">
+   <li><a href="/projects/add_issue_comment/">Add Issue Comment</a></li>
+   <li><a href="/projects/all_comments/">All Issues Comments</a></li>					
+ </ul>
+</li>
+	<li><a href="javascript:;"><i class="ti ti-eye"></i><span>Visualisations</span></a>
+  <ul class="acc-menu">
+  {% if user.is_admin == '1' %}
+   <li><a href="/projects/projects_visualisations/">Projects Visualisations</a></li>
+   {% endif %}
+   <li><a href="/projects/issues_visualisations/">Issues Visualisations</a></li>					
+ </ul>
+</li>
+
+
+  {% if user.is_admin == '1' %}
+<li><a href="javascript:;"><i class="ti ti-pencil"></i><span>Comment Rating</span></a>
+			<ul class="acc-menu">
+				<li><a href="/projects/add_rating/">Add Rating</a></li>								
+			</ul>
+		</li>
+
+<li><a href="javascript:;"><i class="ti ti-pencil"></i><span>Relevant Links</span></a>
+      <ul class="acc-menu">
+        <li><a href="/projects/add_relevant_links/">Add Link</a></li>               
+      </ul>
+    </li>
+
+     
+   
+		<li><a href="javascript:;"><i class="ti ti-user"></i><span>User Mgt</span></a>
+			<ul class="acc-menu">
+				<li><a href="/users/users_list/">Registered Users</a></li>
+				<li><a href="/users/all_admin/">Administrators</a></li>
+				<li><a href="/users/create_admin/">Add Administrators</a></li>				
+			</ul>
+		</li>
+		{% endif %}
+	
+	</ul>
+</nav>
+    </div>
+
+
+    <!-- <div class="widget" id="widget-sparklines">
+      
+    </div> -->
+</div>
+                    </div>
+                </div>
+                <div class="static-content-wrapper">
+                    <div class="static-content">
+                        <div class="page-content">
+                            <ol class="breadcrumb">
+                                
+				<li class=""><a href="/">Home</a></li>
+				<li class="active"><a href="/">Dashboard</a></li>
+
+                            </ol>
+                            <div class="page-heading">
+                                <h1>Dashboard</h1>
+                                <div class="btn-group pull-right">
+                                    <a href="#" class="btn btn-default">Settings</a>
+                                    <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="container-fluid">
+                        
+                        {% if user.is_admin == '1' %}        
+<div class="row">		
+						<div class="col-md-3 col-sm-6">
+							<div class="card">
+								<div class="card-body no-padding">
+									<div class="alert alert-callout alert-info no-margin">
+										<h1 class="pull-right text-success"><i style='color:#2196F3' class="fa fa-globe"></i></h1>
+										<strong class="text-xl">{{num_of_projects}}</strong><br/>
+										<span class="opacity-50">Projects</span>
+									</div>
+								</div><!--end .card-body -->
+							</div><!--end .card -->
+						</div><!--end .col -->
+						<!-- END ALERT - REVENUE -->
+
+						<!-- BEGIN ALERT - VISITS -->
+					
+						<div class="col-md-3 col-sm-6">
+							<div class="card">
+								<div class="card-body no-padding">
+									<div class="alert alert-callout alert-warning no-margin">
+										<h1 class="pull-right text-success"><i style='color:#FF9800' class="fa fa-list"></i></h1>
+										<strong class="text-xl">{{num_of_issues}}</strong><br/>
+										<span class="opacity-50">Total Issues</span>
+									</div>
+								</div><!--end .card-body -->
+							</div><!--end .card -->
+						</div><!--end .col -->
+						<!-- END ALERT - VISITS -->
+
+						<!-- BEGIN ALERT - BOUNCE RATES -->
+						
+						<div class="col-md-3 col-sm-6">
+							<div class="card">
+								<div class="card-body no-padding">
+									<div class="alert alert-callout alert-danger no-margin">
+										<h1 class="pull-right text-success"><i style='color:#F44336' class="fa fa-comment"></i></h1>
+										<strong class="text-xl">{{num_of_comments}}</strong><br/>
+										<span class="opacity-50">Total Comments</span>
+									</div>
+								</div><!--end .card-body -->
+							</div><!--end .card -->
+						</div><!--end .col -->
+
+
+
+						<!-- END ALERT - BOUNCE RATES -->
+
+						<!-- BEGIN ALERT - TIME ON SITE -->
+						<div class="col-md-3 col-sm-6">
+							<div class="card">
+								<div class="card-body no-padding">
+									<div class="alert alert-callout alert-success no-margin">
+										<h1 class="pull-right text-success"><i class="fa fa-users"></i></h1>
+										<strong class="text-xl">{{num_of_users}}</strong><br/>
+										<span class="opacity-50">Total Users</span>
+									</div>
+								</div><!--end .card-body -->
+							</div><!--end .card -->
+						</div><!--end .col -->
+						<!-- END ALERT - TIME ON SITE -->
+
+					</div><!--end .row -->
+
+					{% else %}
+<div class="row">		
+						<div class="col-md-3 col-sm-6">
+							<div class="card">
+								<div class="card-body no-padding">
+									<div class="alert alert-callout alert-info no-margin">
+										<h1 class="pull-right text-success"><i style='color:#2196F3' class="fa fa-globe"></i></h1>
+										<strong class="text-xl">1</strong><br/>
+										<span class="opacity-50">Current Project</span>
+									</div>
+								</div><!--end .card-body -->
+							</div><!--end .card -->
+						</div><!--end .col -->
+						<!-- END ALERT - REVENUE -->
+
+						<!-- BEGIN ALERT - VISITS -->
+					
+						<div class="col-md-3 col-sm-6">
+							<div class="card">
+								<div class="card-body no-padding">
+									<div class="alert alert-callout alert-warning no-margin">
+										<h1 class="pull-right text-success"><i style='color:#FF9800' class="fa fa-list"></i></h1>
+										<strong class="text-xl">{{num_of_issues}}</strong><br/>
+										<span class="opacity-50">Issues on Project</span>
+									</div>
+								</div><!--end .card-body -->
+							</div><!--end .card -->
+						</div><!--end .col -->
+						<!-- END ALERT - VISITS -->
+
+						<!-- BEGIN ALERT - BOUNCE RATES -->
+						
+						<div class="col-md-3 col-sm-6">
+							<div class="card">
+								<div class="card-body no-padding">
+									<div class="alert alert-callout alert-danger no-margin">
+										<h1 class="pull-right text-success"><i style='color:#F44336' class="fa fa-comment"></i></h1>
+										<strong class="text-xl">{{num_of_comments}}</strong><br/>
+										<span class="opacity-50">Comments on Project</span>
+									</div>
+								</div><!--end .card-body -->
+							</div><!--end .card -->
+						</div><!--end .col -->
+
+
+
+						<!-- END ALERT - BOUNCE RATES -->
+
+						<!-- BEGIN ALERT - TIME ON SITE -->
+						<div class="col-md-3 col-sm-6">
+							<div class="card">
+								<div class="card-body no-padding">
+									<div class="alert alert-callout alert-success no-margin">
+										<h1 class="pull-right text-success"><i class="fa fa-users"></i></h1>
+										<strong class="text-xl">{{num_of_users}}</strong><br/>
+										<span class="opacity-50">Users on project </span>
+									</div>
+								</div><!--end .card-body -->
+							</div><!--end .card -->
+						</div><!--end .col -->
+						<!-- END ALERT - TIME ON SITE -->
+
+					</div><!--end .row -->
+
+					{% endif %}
+
+
+<div class="row">
+	<div class="col-md-9">
+	{% if request.user.is_admin == '1'  %}
+			<table class="table m-n">
+						<thead>
+							<tr>
+								<th>#</th>						
+								<th>Project</th>
+								<th>No. of Issues</th>
+								<th>No. of Comments</th>
+															
+							</tr>
+						</thead>
+						<tbody>
+
+
+{% for item in projects %}
+							<tr>
+								<td>{{forloop.counter}}</td>								
+								<td><a href='/projects/project_detail/{{item.id}}/'>{{item.name}}</a></td>
+								<td>{{item.get_number_of_issues}}</td>
+								<td>{{item.get_number_of_comments}}</td>
+								
+							</tr>
+			{% endfor %}
+						</tbody>
+					</table>
+					{% else %}
+					<table class="table m-n">
+						<thead>
+							<tr>
+								<th>#</th>						
+								<th>Issue</th>								
+								<th>No. of Comments</th>
+															
+							</tr>
+						</thead>
+						<tbody>
+
+
+{% for item in issues %}
+							<tr>
+								<td>{{forloop.counter}}</td>								
+								<td><a href='/projects/issue_detail/{{item.id}}/'>{{item.title}}</a></td>								
+								<td>{{item.num_of_comments}}</td>
+								
+							</tr>
+			{% endfor %}
+						</tbody>
+					</table>
+					{% endif %}
+
+<br><br>
+{% if request.user.is_admin == '2'  %}
+<center><a href="/projects/issues_visualisations/" class="btn btn-primary btn-lg"><i class="ti ti-eye"></i> View Visualisations</a></center>
+
+{% else %}
+<center><a href="/projects/projects_visualisations/" class="btn btn-primary btn-lg"><i class="ti ti-eye"></i> View Visualisations</a></center>
+{% endif %}
+
+
+
+
+
+  
+
+
+
+	</div>
+
+
+
+<div class="col-md-3">
+		<div class="widget-tasks mb-md">
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane active" id="widget-chart">
+					<h2>Today's Comments - Offline</h2>
+					<div class="widget-body">
+						<div class="easypiechart mb-md" id="designprogress" data-percent="{{offline_count}}">
+							<span class="percent-non"></span>
+						</div>
+					</div>
+				</div>
+
+				<div role="tabpanel" class="tab-pane" id="widget-tasks">
+					<h2>Today's Comments - Web</h2>
+					<div class="widget-body">
+						<div class="easypiechart mb-md" id="codingprogress" data-percent="{{web_count}}}">
+							<span class="percent-non"></span>
+						</div>
+					</div>
+				</div>
+
+				<div role="tabpanel" class="tab-pane" id="widget-pending">
+					<h2>Today's Comments - Social Media</h2>
+					<div class="widget-body">
+						<div class="easypiechart mb-md" id="docsprogress" data-percent="{{social_count}}">
+							<span class="percent-non"></span>
+						</div>
+					</div>
+				</div>				
+			</div>
+
+
+			<div class="widget-tabs tabdrop-disabled">
+				<ul class="nav nav-tabs" role="tablist">
+					<li class="active">
+						<a href="#widget-chart" aria-controls="widget-chart" role="tab" data-toggle="tab">
+							<i class="ti ti-pie-chart design"></i>
+							<span>Offline</span>
+						</a>
+					</li>
+					<li>
+						<a href="#widget-tasks" aria-controls="widget-tasks" role="tab" data-toggle="tab">
+							<i class="ti ti-check-box coding"></i>
+							<span>SMS</span>
+						</a>
+					</li>
+					<li>
+						<a href="#widget-pending" aria-controls="widget-pending" role="tab" data-toggle="tab">
+							<i class="ti ti-pencil-alt docs"></i>
+							<span>Social Media</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div> <!-- tasks -->
+
+	
+	</div>
+
+
+</div>
+
+
+
+
+
+<!-- <div data-widget-group="group1">
+
+
+</div> -->
+
+                            </div> <!-- .container-fluid -->
+                        </div> <!-- #page-content -->
+                    </div>
+                    <footer>
+    <div class="clearfix">
+        <ul class="list-unstyled list-inline pull-left">
+            <li><h6 style="margin: 0;">&copy; 2016 Kakum</h6></li>
+        </ul>
+        <button class="pull-right btn btn-link btn-xs hidden-print" id="back-to-top"><i class="ti ti-arrow-up"></i></button>
+    </div>
+</footer>
+                </div>
+            </div>
+        </div>
+
+    
+    <!-- Switcher -->
+  
+    <!-- Load site level scripts -->
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script> -->
+
+<script type="text/javascript" src="{{STATIC_URL}}assets/js/jquery-1.10.2.min.js"></script> 							<!-- Load jQuery -->
+<script type="text/javascript" src="{{STATIC_URL}}assets/js/jqueryui-1.10.3.min.js"></script> 							<!-- Load jQueryUI -->
+<script type="text/javascript" src="{{STATIC_URL}}assets/js/bootstrap.min.js"></script> 								<!-- Load Bootstrap -->
+<script type="text/javascript" src="{{STATIC_URL}}assets/js/enquire.min.js"></script> 									<!-- Load Enquire -->
+
+<script type="text/javascript" src="{{STATIC_URL}}assets/plugins/velocityjs/velocity.min.js"></script>					<!-- Load Velocity for Animated Content -->
+<script type="text/javascript" src="{{STATIC_URL}}assets/plugins/velocityjs/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="{{STATIC_URL}}assets/plugins/wijets/wijets.js"></script>     						<!-- Wijet -->
+
+<script type="text/javascript" src="{{STATIC_URL}}assets/plugins/codeprettifier/prettify.js"></script> 				<!-- Code Prettifier  -->
+<script type="text/javascript" src="{{STATIC_URL}}assets/plugins/bootstrap-switch/bootstrap-switch.js"></script> 		<!-- Swith/Toggle Button -->
+
+<script type="text/javascript" src="{{STATIC_URL}}assets/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js"></script>  <!-- Bootstrap Tabdrop -->
+
+<script type="text/javascript" src="{{STATIC_URL}}assets/plugins/iCheck/icheck.min.js"></script>     					<!-- iCheck -->
+
+<script type="text/javascript" src="{{STATIC_URL}}assets/plugins/nanoScroller/js/jquery.nanoscroller.min.js"></script> <!-- nano scroller -->
+<script type="text/javascript" src="{{STATIC_URL}}assets/plugins/jquery-mousewheel/jquery.mousewheel.min.js"></script> <!-- Mousewheel support needed for Mapael -->
+
+<script type="text/javascript" src="{{STATIC_URL}}assets/plugins/sparklines/jquery.sparklines.min.js"></script> 			 <!-- Sparkline -->
+
+<script type="text/javascript" src="{{STATIC_URL}}assets/js/application.js"></script>
+    
+<script type="text/javascript" src="{{STATIC_URL}}assets/plugins/charts-chartistjs/chartist.min.js"></script>               <!-- Chartist -->
+<script type="text/javascript" src="{{STATIC_URL}}assets/plugins/charts-chartistjs/chartist-plugin-tooltip.js"></script>    <!-- Chartist -->
+
+<script type="text/javascript" src="{{STATIC_URL}}assets/plugins/charts-chartjs/Chart.js"></script>  						<!-- Chart.js -->
+
+<script type="text/javascript" src="{{STATIC_URL}}assets/plugins/easypiechart/jquery.easypiechart.js"></script> 			<!-- EasyPieChart -->
+<script type="text/javascript" src="{{STATIC_URL}}assets/demo/demo-index.js"></script> 									<!-- Initialize scripts for this page-->
+<script type="text/javascript" src="{{STATIC_URL}}assets/demo/demo-chartist.js"></script>
+    <!-- End loading page level scripts-->
+
+    </body>
+</html>

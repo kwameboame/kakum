@@ -1,0 +1,348 @@
+{% load thumbnail %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1"> 
+ <title>Tech Driven Social Accountability</title>
+ <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+ <link href="{{STATIC_URL}}frontend/assets/plugins/jquery-ui/jquery-ui.css" rel="stylesheet">
+ <link href="{{STATIC_URL}}frontend/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+ <script src="https://use.fontawesome.com/1ae586c7a5.js"></script>
+ <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}frontend/assets/plugins/rs-plugin/css/settings.css" media="screen">
+ <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'> 
+ <link href="{{STATIC_URL}}frontend/assets/css/style.css" rel="stylesheet">
+ <link href="{{STATIC_URL}}frontend/assets/css/main.css" rel="stylesheet">
+
+ 
+ <style>
+  a.pdf {
+    display: inline-block;
+    padding-left: 26px;
+    background: url(http://wacam-static.s3.amazonaws.com/image/pdf.png) no-repeat 0px 3px;
+    margin-top: 5px;
+  }
+
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Oxygen',sans-serif;
+    color: #252525;
+    text-transform: none;
+}
+ 
+  
+  #gfnydvo{
+    display: none;
+  }
+  #slider-height, #bs-carousel, .carousel-inner {
+    width: 100%;
+    height: 380px;
+  }
+  .fade-carousel .slides .slide-1 {
+    background-image: url(https://s3.amazonaws.com/afrstatic/outside.jpg);
+  }
+  .fade-carousel .slides .slide-1, .fade-carousel .slides .slide-2, .fade-carousel .slides .slide-3 {
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size:auto;
+    background-position:0 0;
+  }
+  .masking-hover, .imageBox .productImage .productMasking, .whiteSection .featuredProducts .slide .productImage .productMasking, .mainContent .featuredProducts .slide .productImage .productMasking, .productsContent .productBox .productImage .productMasking, .whiteSection .featuredCollection .thumbnail .imageWrapper .masking, .mainContent .featuredCollection .thumbnail .imageWrapper .masking, .productListSingle .media .media-left .maskingImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(80,124,189,0.9);
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  .topBar ul.pull-right li:last-child a {
+    background-color: #507CBD;
+    line-height: 35px;
+    min-height: 36px;
+    font-size: 13px;
+    color: #ffffff;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+
+</style>
+
+</head>
+<body class="background-dark template-product">
+  <div class="header clearfix">
+   <div class="topBar">
+     <div class="container">
+       <div class="row">
+         <div class="col-md-6 hidden-sm hidden-xs">
+           <ul class="list-inline">
+             <li><a href="#"><i class="fa fa-envelope-o"></i> info@penplusbytes.org</a></li>
+           </ul>
+         </div>
+         <div class="col-md-6 col-xs-12">
+           <ul class="list-inline pull-right">
+            {% if user.is_authenticated %}
+            <li style='padding:5px'><img class='img-circle' height='40' src='{{user.get_avatar}}' /></li>
+            <li style='margin-top:5px'><a style='font-size:16px' href="#">{{user.first_name}} {{user.last_name}}</a></li>
+            <li style='margin-top:5px'><a href="/user_logout/">Logout</a></li>
+            {% else %}
+            <li><a  href="/user_login/">Login</a></li>
+            <li><a  href="/user_register/">Register</a></li>
+            <li style='margin-top:0px'><a target='_blank' href="http://penplusbytes.org/site/">Visit Penplusbytes</a>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav style='box-shadow:2px 2px 2px 2px #dfdfdf' class="navbar navbar-main navbar-default" role="navigation">
+     <div class="container">
+       <div class="navbar-header">
+         <button type="button" class="navbar-toggle" data-toggle="collapse"
+         data-target=".navbar-ex1-collapse">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </button>
+       <a style='width:245px' href="/" class="navbar-brand"><img style="float: left; margin-top: -9px;" src="http://afrstatic.s3.amazonaws.com/logo_kakum.png" height="50"><h4 id="logo-text">Tech Driven Social<br/> Accountability</h4></a>
+     </div>
+
+     <div class="collapse navbar-collapse navbar-ex1-collapse">
+       <ul class="nav navbar-nav navbar-right">
+         <li><a  href='/issues/'>Issues</a></li>
+
+         <li class="dropdown">
+           <a class="dropdown-toggle" data-toggle="dropdown" role="button"
+           aria-haspopup="true" aria-expanded="false">Gallery</a>
+           <ul class="dropdown-menu dropdown-menu-right">
+             <li><a  href="/gallery/pictures/" class="articles-font"
+               >Pictures</a>
+             </li>
+             <li><a  href="/gallery/videos/" class="articles-font"
+               >Videos</a>
+             </li>
+
+           </ul>
+         </li>
+         <li class="dropdown">
+           <a class="dropdown-toggle" data-toggle="dropdown" role="button"
+           aria-haspopup="true" aria-expanded="false">Knowledge Center</a>
+           <ul class="dropdown-menu dropdown-menu-right">
+             <li><a  href="/knowledge_center/articles/" class="articles-font"
+               >Articles</a></li>
+               <li><a  href="/knowledge_center/documents/" class="articles-font"
+                 >Documents</a></li>
+
+               </ul>
+             </li>
+             <li><a  href="/about/" >About Us</a></li>
+           </ul>
+         </div>
+       </div>
+     </nav>
+   </div>
+
+   <div id="slider-height">
+    <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+      <div class="overlay"></div>
+      <ol class="carousel-indicators">
+        <li data-target="#bs-carousel" data-slide-href="0" class="active"></li>
+
+      </ol>
+
+      <div class="carousel-inner">
+        <div class="item slides active">
+          <div class="slide-1"></div>
+          <div class="hero">
+        
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <section class="mainContent clearfix">
+      <div class="container">
+        <div class="row featuredCollection">
+          <div class="col-xs-12">
+            <div class="page-header">
+              <h4>Recent Issues</h4>
+            </div>
+          </div>
+          <div class="">
+
+            {% for item in issues %}
+            <div class="col-sm-4 col-xs-12">
+              <div class="thumbnail" style='min-height:405px'>
+                <div class="imageWrapper">
+
+                  {% thumbnail item.get_first_image "340x220" crop="center" as im %}
+                  <img class="img-responsive" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                  {% endthumbnail %}  
+
+                  <div class="masking"><a href='/issues/{{item.id}}/'><span
+                    class="btn viewBtn">View Issue</span></a>
+                  </div>
+                </div>
+                <div class="caption">
+                  <a href='/issues/{{item.id}}/'>
+                    <h4>{{item.title}}</h4>
+                  </a>
+                  <hr/>
+                  <h4><i class="fa fa-comment" aria-hidden="true"></i> {{item.num_of_comments}} comments</h4>
+                  <h6 class="giveMeEllipsis">{{item.description|safe|truncatewords:'50'}}</h6>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <section class="mainContent clearfix">
+      <div class="container">
+        <div class="row featuredCollection">
+          <div class="col-xs-12">
+            <div class="page-header">
+              <h4> Knowledge Center </h4>
+            </div>
+          </div>
+          <div>
+
+
+
+
+
+            {% if document %}
+            <h5>Documents </h5>
+              {% for item in document %}
+            <div class="col-sm-3 col-xs-12">
+              <div class="thumbnail" style='min-height:210px'>
+
+
+                
+                <div class="imageWrapper">
+
+                
+
+                  {% if item.media_url %} 
+                  <center> <div class="col-md-12"  style='margin-bottom:0px; min-height:145px'>
+                    <a style='border-bottom:none; color:#222222' href="{{item.media_url}}" >
+                      <img src='http://wacam-static.s3.amazonaws.com/pdf.jpg' style='width: 60%;'  />
+                      <center><p>{{item.title}}</p></center></a>
+                    </div></center>
+                    {% else %}
+                    <center><div class="col-md-12" style='margin-bottom:0px; min-height:145px'>
+                      <a style='border-bottom:none; color:#222222' href="{{item.document}}" >
+                      {% if item.cover_image %}
+
+{% thumbnail item.cover_image "153x150" crop="center" as im %}
+        <img class='team-photo' style='margin-right:10px;' src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"> 
+      {% endthumbnail %} 
+      </a>
+            {% else %}
+                        <img src='http://wacam-static.s3.amazonaws.com/pdf.jpg'  style='width: 60%;' />
+                        {% endif %}
+                        <center><p>{{item.title}}</p></center></a>
+                      </div></center>
+                      {% endif %}
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+                    </div>
+                  </div>
+
+                </div>
+                {% endfor %} 
+                {% endif %}
+
+
+              </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+            </div>
+          </div>
+
+        </div>
+    
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<div class="footer clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 col-xs-12">
+        <div class="footerLink">
+          <h5>Contact Us</h5>
+          <ul class="list-unstyled">
+            <li><a href="http://penplusbytes.org/site/">Website</a></li>
+            <li>Tel: + 233 500294411</li>
+          </ul>
+        </div>
+      </div>
+       <div class="col-sm-4 col-xs-12">
+        <div class="footerLink">
+          <h5>Relevant Links</h5>
+          <ul class="list-unstyled">
+          {% for item in relevant %}
+            <li><a href="{{item.link}}">{{item.title}}</a></li>
+          {% endfor %}
+         
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-12">
+       <div class="footerLink">
+          <h5 style='text-transform: None'>Powered Penplusbytes with Support from OSIWA</h5>
+          <ul class="list-unstyled">
+            <li><img style='float:left; margin-right:15px' height='75' src="http://www.africanelections.org/ghana/userfiles/news/penplusbytes_new_logo.jpg" /></li>
+            <li><img height='75' src="https://s3.amazonaws.com/wacam-static/partners/osiaI.jpg" /></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="copyRight clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-7 col-xs-12">
+        <p>&copy; 2016 Copyright. <a target="_blank" href="#">Social Accountability</a>.</p>
+      </div>
+      <div class="col-sm-5 col-xs-12">
+        <ul class="list-inline">
+          <li><a href="https://www.facebook.com/groups/7775446390/"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="https://twitter.com/penplusbytes"><i class=" fa fa-twitter"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> 
+<script src="{{STATIC_URL}}frontend/assets/plugins/jquery-ui/jquery-ui.js"></script>
+<script src="{{STATIC_URL}}frontend/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="{{STATIC_URL}}frontend/assets/plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+<script src="{{STATIC_URL}}frontend/assets/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+<script src="{{STATIC_URL}}frontend/assets/js/custom.js"></script>
+</body>
+</html>

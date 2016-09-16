@@ -1,0 +1,49 @@
+.form-body .panel .panel-heading, .signUp .panel .panel-heading, .lostPassword .panel .panel-heading, .logIn .panel .panel-heading {
+    background-color: #780E1A;
+    border-radius: 0;
+    padding: 0 15px;
+    height: 60px;
+}
+
+.panel .panel-heading {
+    background-color: #780E1A;
+    border-radius: 0;
+    padding: 0 15px;
+    height: 60px;
+}
+
+.form-field .btn-primary, .form-body .panel .panel-body .btn-primary, .signUp .panel .panel-body .btn-primary, .lostPassword .panel .panel-body .btn-primary, .logIn .panel .panel-body .btn-primary, .commentsForm .btn-primary, #login .modal-dialog .modal-content .modal-body .btn-primary, #signup .modal-dialog .modal-content .modal-body .btn-primary {
+    border-radius: 0;
+    background-color: #780E1A;
+    border: none;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 0;
+    height: 50px;
+    line-height: 50px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.form-field .btn-link, .form-body .panel .panel-body .btn-link, .signUp .panel .panel-body .btn-link, .lostPassword .panel .panel-body .btn-link, .logIn .panel .panel-body .btn-link, .commentsForm .btn-link, #login .modal-dialog .modal-content .modal-body .btn-link, #signup .modal-dialog .modal-content .modal-body .btn-link {
+    color: #780E1A;
+    text-transform: capitalize;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.form-field .btn-link, .form-body .panel .panel-body .btn-link, .signUp .panel .panel-body .btn-link, .lostPassword .panel .panel-body .btn-link, .logIn .panel .panel-body .btn-link, .commentsForm .btn-link, #login .modal-dialog .modal-content .modal-body .btn-link, #signup .modal-dialog .modal-content .modal-body .btn-link:hover{
+    color: #782604;
+}
+
+.logIn .btn-default.pull-left {
+    background-color: #46639f;
+    width: 100%;
+}
