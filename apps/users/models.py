@@ -77,7 +77,7 @@ def unique_code():
     CHARSET = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
     LENGTH = 10
     new_code = ''
-    for i in xrange(LENGTH):
+    for i in range(LENGTH):
         new_code += CHARSET[randrange(0, len(CHARSET))]
     return '%s@gmail.com' % new_code
 

@@ -3,7 +3,7 @@ import dj_database_url
 from datetime import datetime
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = ('7v*yftu%pj42qeyfp5*r=y9^c$g34(3k5ncd^d5q1sux*ke9_)')
 
 DEBUG = True
 

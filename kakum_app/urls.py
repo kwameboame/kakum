@@ -1,10 +1,12 @@
-from django.conf.urls import patterns, include, url, handler404, handler500
+from django.conf.urls import include, url, handler404, handler500
+from django.contrib.auth import views as kakum_app_views
+from apps.projects import views as kakum_app_views
 from django.contrib import admin
 from django.conf import settings
 from django.views.generic import TemplateView
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = [
     url(r'^$', 'kakum_app.views.frontend_home', name='frontend_home'),
     url(r'^backend/$', 'kakum_app.views.backend_home', name='backend_home'),
     url(r'^gallery/videos/$', 'kakum_app.views.frontend_gallery_videos', name='frontend_videos'),
@@ -45,7 +47,7 @@ urlpatterns = patterns('',
     url(r'^reset/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$','django.contrib.auth.views.password_reset_confirm', name='password_reset_confirm'),
     url(r'^reset/done/$','django.contrib.auth.views.password_reset_complete', name='password_reset_complete'),
     url(r'^direct/$', TemplateView.as_view, {'template': 'direct.html','extra_context':{'showDirect':True}}),
-)
+]
 
 if settings.DEBUG:
     urlpatterns += patterns('',

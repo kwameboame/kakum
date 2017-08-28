@@ -1,4 +1,4 @@
-from models import *
+from .models import *
 from django import forms
 from django.forms.utils import ErrorList
 from django.forms import widgets

@@ -6,7 +6,7 @@ from s3direct.fields import S3DirectField
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from boto.s3.connection import S3Connection
-from cStringIO import StringIO
+from io import StringIO
 from PIL import Image as pil
 import os
 import pytz
@@ -339,7 +339,7 @@ def compress_image(sender, instance=None, created=False, **kwargs):
             if instance.image:
                 start_compressing(str(instance.image))
         except:
-            print 'Compression failed'
+            print('Compression failed')
 
 
 @receiver(post_save, sender=GalleryPicture)
@@ -349,4 +349,4 @@ def compress_image(sender, instance=None, created=False, **kwargs):
             if instance.image:
                 start_compressing(str(instance.image))
         except:
-            print 'Compression failed'
+            print('Compression failed')

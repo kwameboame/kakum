@@ -3,7 +3,7 @@ from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from apps.projects.models import *
-from forms import *
+from .forms import *
 
 
 @login_required
@@ -1313,7 +1313,7 @@ def issues_visualisations_details(request, pk):
                     'Twitter': IssueComment.objects.filter(input_channel='Twitter', issue__id=int(pk)).count(),
                     'Offline': IssueComment.objects.filter(input_channel='Offline', issue__id=int(pk)).count(),
             }
-            print channel_graph
+            print(channel_graph)
             num_of_unresolved = IssueComment.objects.filter(issue_resolved=False, issue__id=int(pk)).count()
             num_of_resolved = IssueComment.objects.filter(issue_resolved=True, issue__id=int(pk), rating__value__lt=3).count()
             latest = IssueComment.objects.all().order_by('-id')[:5]
@@ -1334,7 +1334,7 @@ def issues_visualisations_details(request, pk):
                     'Twitter': IssueComment.objects.filter(input_channel='Twitter', issue__project__id=request.user.project_id, issue__id=int(pk)).count(),
                     'Offline': IssueComment.objects.filter(input_channel='Offline', issue__project__id=request.user.project_id, issue__id=int(pk)).count(),
                 }
-                print channel_graph
+                print(channel_graph)
                 if myratings:
                     for item in myratings:
                         rating_graph[item.name] = IssueComment.objects.filter(rating__name=item.name, issue__project__id=request.user.project_id, issue__id=int(pk)).count()
