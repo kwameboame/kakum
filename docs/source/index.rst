@@ -18,7 +18,6 @@ Guide
 
    introduction
    installation
-   settings
    establishing_kakum
    using_kakum
    user_management

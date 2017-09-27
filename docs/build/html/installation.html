@@ -24,7 +24,6 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Settings" href="settings.html" />
     <link rel="prev" title="Introduction" href="introduction.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -43,14 +42,20 @@
             
   <div class="section" id="installation-guide">
 <h1>Installation Guide<a class="headerlink" href="#installation-guide" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><ul class="simple">
-<li>Settings</li>
-<li>Fetching</li>
-<li>Input (Social Media, SMS, WhatsApp Web) Feedback Authentication</li>
-<li>Generating Issues Tokens</li>
-</ul>
-</div></blockquote>
+<p>You can get Kakum by cloning it in your local development environment. Make sure you have git installed and run the following command</p>
+<p><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://bitbucket.org/penplusbytes/kakum</span></code></p>
+<p>Kakum runs on python 2.7 so if you don’t have it, you need to get it. If you have 3.x and 2.7 installed, switch to 2.7 by giving it priority in your PATH settings in environment variables.</p>
+<p>After switching to python 2.7, create a virtual environment by running:</p>
+<p><code class="docutils literal"><span class="pre">mkvirtual</span> <span class="pre">env</span> <span class="pre">envname</span></code></p>
+<p>‘envname’ should be replaced with your desired name.</p>
+<p>Choose a secret key and export it to the environment:</p>
+<p><code class="docutils literal"><span class="pre">set</span> <span class="pre">SECRET_KEY=your_secret_key</span></code></p>
+<p>‘your_secret_key’ should be replaced with a key of your choice.</p>
+<p>The next step is to install dependencies. Run this command:</p>
+<p><code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code></p>
+<p>Now, run the local server:</p>
+<p><code class="docutils literal"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">runserver</span></code></p>
+<p>You will see the app running at localhost:8000</p>
 <ul class="simple">
 <li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
 <li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
@@ -77,7 +82,6 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="establishing_kakum.html">Establishing Kakum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="using_kakum.html">Using Kakum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_management.html">User Management</a></li>
@@ -89,7 +93,6 @@
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="introduction.html" title="previous chapter">Introduction</a></li>
-      <li>Next: <a href="settings.html" title="next chapter">Settings</a></li>
   </ul></li>
 </ul>
 </div>

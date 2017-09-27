@@ -107,27 +107,10 @@ This is the general comments tab
 
 **View comments**
 | View Status (3 actions)
-	*	Change verification status
-	*	Escalate to official 
-	*	Resolve
+|	*	Change verification status
+|	*	Escalate to official 
+|	*	Resolve
 
-
-User Management
----------------
-	*	Allows you to add Super user. 
-	*	Allows you to add other users.
-	*	Gives information on all users.
-
-**User roles:**
-	*	Website Users
-	*	Backend Users
-	*	Kakum Adminstrators
-	*	Stakeholder
-
-
-
-Reports Page Activities
------------------------
 
 Issue  Analysis
 ---------------
@@ -139,20 +122,3 @@ Search Page
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
-
-.. +------------------------+------------------+---------------+
-.. | NAME OF LINK           | CHARACTERISTICS  | CONTENT       |
-.. +========================+==================+===============+
-.. | Dashboard              | column 2         | column 3      |
-.. +------------------------+------------------+---------------+
-.. | Projects               | ...              | ...           |
-.. +------------------------+------------------+---------------+
-.. | Issues                 | ...              | ...           |
-.. +------------------------+------------------+---------------+
-.. | Knowledge Center       | ...              | ...           |
-.. +------------------------+------------------+---------------+
-.. | Comments               | ...        | ...      |
-.. +------------------------+------------+----------+
-.. | User Management        | ...        | ...      |
-.. +------------------------+------------+----------+
